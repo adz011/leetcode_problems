@@ -1,0 +1,9 @@
+Musimy sprawdzić przy każdej iteracji czy:
+- istnieje kolejny element w obu listach
+- jeżeli istieje w obu, zwieksz counter przy nizszej liczbie
+- zatrzymaj sie na polowie dlugosci sumy obu list
+- dodaj dwie liczby przy dlugosci sumy liczby parzystej i jedna przy liczbie nieparzystej
+
+Wynik:
+Runtime: 4 ms, faster than 75.15% of Java online submissions for Median of Two Sorted Arrays.
+Memory Usage: 49.8 MB, less than 51.64% of Java online submissions for Median of Two Sorted Arrays.
