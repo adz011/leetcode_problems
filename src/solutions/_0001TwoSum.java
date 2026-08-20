@@ -1,8 +1,10 @@
-import java.util.Arrays;
+package solutions;
+
 import java.util.HashMap;
 import java.util.Map;
 
-class Solution {
+public class _0001TwoSum {
+
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> numsMap = new HashMap<>();
         for (int i=0; i<nums.length; i++) {
@@ -12,11 +14,5 @@ class Solution {
                 numsMap.putIfAbsent(nums[i], i);
             }
         } return new int[]{};
-    }
-
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        int[] nums = {2,7,11,25};
-        System.out.println(Arrays.toString(solution.twoSum(nums, 9)));
     }
 }
