@@ -27,11 +27,9 @@ public class _2904ShortestandLexicographicallySmallestBeautifulString {
             if (s.charAt(i) != '1') {
                 continue;
             }
-
-            left++;
-            while (s.charAt(left) != '1') {
+            do {
                 left++;
-            }
+            } while (s.charAt(left) != '1');
             right = i + 1;
 
             String candidate = s.substring(left, right);
