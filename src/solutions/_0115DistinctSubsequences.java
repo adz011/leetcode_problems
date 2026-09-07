@@ -1,15 +1,5 @@
 package solutions;
 
-/**
- * Given two strings s and t, return the number of distinct subsequences of s which equals t.
- * <p>
- * The test cases are generated so that the answer fits on a 32-bit signed integer.
- * <p>
- * Constraints:
- * <p>
- * -- 1 <= s.length, t.length <= 1000
- * -- s and t consist of English letters.
- */
 public class _0115DistinctSubsequences {
     public int numDistinct(String s, String t) {
         int n = s.length(), m = t.length();
@@ -26,9 +16,4 @@ public class _0115DistinctSubsequences {
 
         return (int) ways[m];
     }
-
-    /**
-     * s = "rabbbit", t = "rabbit"
-     * the three b's give three ways to pick "bb" -> 3
-     */
 }
