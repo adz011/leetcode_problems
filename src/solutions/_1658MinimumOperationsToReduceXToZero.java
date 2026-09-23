@@ -1,0 +1,40 @@
+package solutions;
+
+import java.util.Arrays;
+
+public class _1658MinimumOperationsToReduceXToZero {
+
+    static public int minOperations(int[] nums, int x) {
+        int n = nums.length;
+        int total = 0;
+        for (int w : nums) total += w;
+        int right = 0, left = 0, currSum = 0;
+        int maxSubarrayLength = 0;
+        if (total == x) return n;
+        for (; right < n; right++) {
+            currSum += nums[right];
+            while (total - currSum < x && left < right) {
+                currSum -= nums[left];
+                left++;
+            }
+            if (total - currSum == x) maxSubarrayLength = Math.max(maxSubarrayLength, right - left + 1);
+        }
+        return maxSubarrayLength == 0 ? -1 : n - maxSubarrayLength;
+    }
+
+    static public int minOperationsRecursionAndMemo(int[] nums, int x) {
+        int n = nums.length;
+        int[][] memo = new int[n][n];
+        for (int[] row : memo) Arrays.fill(row, -1);
+        int ans = recur(nums, x, 0, n - 1, n, memo);
+        return ans == Integer.MAX_VALUE ? -1 : ans;
+    }
+
+    static public int recur(int[] nums, int x, int left, int right, int n, int[][] memo) {
+        if (x == 0) return left + n - right - 1;
+        if (x < 0 || right < left) return Integer.MAX_VALUE;
+        if (memo[left][right] != -1) return memo[left][right];
+        int ans = Math.min(recur(nums, x - nums[left], left + 1, right, n, memo), recur(nums, x - nums[right], left, right - 1, n, memo));
+        return memo[left][right] = ans;
+    }
+}
