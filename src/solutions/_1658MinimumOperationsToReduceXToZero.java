@@ -8,18 +8,19 @@ public class _1658MinimumOperationsToReduceXToZero {
         int n = nums.length;
         int total = 0;
         for (int w : nums) total += w;
-        int right = 0, left = 0, currSum = 0;
-        int maxSubarrayLength = 0;
+        int right = 0, left = 0, target = 0, maxTargetLength = 0;
+
         if (total == x) return n;
+        
         for (; right < n; right++) {
-            currSum += nums[right];
-            while (total - currSum < x && left < right) {
-                currSum -= nums[left];
+            target += nums[right];
+            while (total - target < x && left < right) {
+                target -= nums[left];
                 left++;
             }
-            if (total - currSum == x) maxSubarrayLength = Math.max(maxSubarrayLength, right - left + 1);
+            if (total - target == x) maxTargetLength = Math.max(maxTargetLength, right - left + 1);
         }
-        return maxSubarrayLength == 0 ? -1 : n - maxSubarrayLength;
+        return maxTargetLength == 0 ? -1 : n - maxTargetLength;
     }
 
     static public int minOperationsRecursionAndMemo(int[] nums, int x) {
