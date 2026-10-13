@@ -1,3 +1,5 @@
+package solutions;
+
 public class _2267CheckifThereIsaValidParenthesesStringPath {
 
     private boolean[][][] seen;
