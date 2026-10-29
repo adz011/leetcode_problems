@@ -3,11 +3,11 @@ package solutions;
 public class _1400ConstructKPalindromeStrings {
     public boolean canConstruct(String s, int k) {
         int n = s.length();
-        boolean[] isOdd = new boolean[26];
-        int oddCount = 0;
-
         if(k > n) return false;
 
+        boolean[] isOdd = new boolean[26];
+        int oddCount = 0;
+        
         for (int i = 0; i < n; i++) {
             int c = s.charAt(i) - 'a';
             isOdd[c] = !isOdd[c];
@@ -17,6 +17,6 @@ public class _1400ConstructKPalindromeStrings {
             if (isOdd[i]) oddCount++;
         }
 
-        return oddCount < k;
+        return oddCount <= k;
     }
 }
